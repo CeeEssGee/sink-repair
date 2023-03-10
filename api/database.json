@@ -17,13 +17,6 @@
       "neededBy": "2023-03-27"
     },
     {
-      "description": "asdf",
-      "address": "1243",
-      "budget": "2345",
-      "neededBy": "2023-03-17",
-      "id": 3
-    },
-    {
       "description": "Leaky sink faucet",
       "address": "123 Main Street",
       "budget": "500",
