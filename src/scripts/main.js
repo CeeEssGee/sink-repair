@@ -14,14 +14,9 @@ const render = () => {
 
 render()
 
-// ORIGINAL CODE, REPLACED PER THE INSTRUCTIONS ON ROW 4, COLUMN 1
-// import { SinkRepair } from "./SinkRepair.js"
-
-
-// const mainContainer = document.querySelector("#container")
-
-// const render = () => {
-//     mainContainer.innerHTML = SinkRepair()
-// }
-
-// render()
+mainContainer.addEventListener(
+    "stateChanged",
+    customEvent => {
+        render()
+    }
+)
