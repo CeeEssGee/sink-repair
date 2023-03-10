@@ -19,3 +19,29 @@ export const fetchRequests = () => {
 export const getRequests = () => {
     return applicationState.requests.map(request => ({ ...request }))
 }
+
+const mainContainer = document.querySelector("#container")
+
+// POST method means that we want the API to create something new
+    // GET - please give me this resource
+    // POST - please create something new
+    // PUT - please modify an existing resource
+    // DELETE - please delete an existing resource
+export const sendRequest = (userServiceRequest) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userServiceRequest)
+    }
+
+
+    return fetch(`${API}/requests`, fetchOptions)
+        .then(response => response.json())
+        .then(
+            () => { //do we want to put a variable name in the parentheses?
+               // where do we want to store this??? 
+               mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            })
+}
