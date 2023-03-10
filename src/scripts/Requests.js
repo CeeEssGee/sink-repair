@@ -1,17 +1,21 @@
-import { getRequests } from "./dataAccess.js" // imports the array of requests 
+import { getRequests, deleteRequest } from "./dataAccess.js" // imports the array of requests 
 
 export const Requests = () => { // to retrieve the requests array from dataAccess.js
     const requests = getRequests() // set as a variable so we can use the data 
     let convertRequestToListElement = (request) => { // create a string from the data incoporating list tags
         return `
-        <li id="request--${request.id}" value=${request}>
+        <li id="cust-request--${request.id}" value=${request}>
         ${request.description}
+        <button class="request__delete"
+                id="request--${request.id}">
+            Delete
+        </button>
         </li>
         `
     }
     // creates the rest of the html incorporating .map(function that creates the list of strings).join("") within unordered list tags. We've incorporated the <li> tags in the function, so no need to include anything within the .join("")
     let html = `
-        <ul id="request_list_descriptions">
+        <ul id="list_descriptions">
             ${
                 requests.map(convertRequestToListElement).join("") //
             }
@@ -21,6 +25,16 @@ export const Requests = () => { // to retrieve the requests array from dataAcces
     return html
 }
 
+
+// Now add an event listener to the main container. When the user clicks on any of the delete buttons, invoke the deleteRequest() function you just made above. Make sure you pass the id of the service request to the deleteRequest() function as an argument.
+const mainContainer = document.querySelector("#container")
+
+mainContainer.addEventListener("click", click => {
+    if (click.target.id.startsWith("request--")) {
+        const [,requestId] = click.target.id.split("--")
+        deleteRequest(parseInt(requestId))
+    }
+})
 
 
 

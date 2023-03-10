@@ -40,8 +40,18 @@ export const sendRequest = (userServiceRequest) => {
     return fetch(`${API}/requests`, fetchOptions)
         .then(response => response.json())
         .then(
-            () => { //do we want to put a variable name in the parentheses? No
+            () => { //We do NOT want to put a variable name in the parentheses
                // Update your sendRequest() function's fetch call to dispatch the custom event after the POST operation has been completed.
                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
             })
+}
+
+// The function whose responsiblity it is to initiate the fetch request for DELETE must have the primary key sent to it as an argument. Import it on the Requests.js module
+export const deleteRequest = (id) => {
+    return fetch(`${API}/requests/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
 }
