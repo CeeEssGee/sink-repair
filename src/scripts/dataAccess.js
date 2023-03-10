@@ -40,8 +40,8 @@ export const sendRequest = (userServiceRequest) => {
     return fetch(`${API}/requests`, fetchOptions)
         .then(response => response.json())
         .then(
-            () => { //do we want to put a variable name in the parentheses?
-               // where do we want to store this??? 
+            () => { //do we want to put a variable name in the parentheses? No
+               // Update your sendRequest() function's fetch call to dispatch the custom event after the POST operation has been completed.
                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
             })
 }
