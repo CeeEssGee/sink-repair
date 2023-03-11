@@ -1,5 +1,7 @@
 const applicationState = {
-    requests: []
+    requests: [], // add this as a place for fetchRequests to store its data
+    plumbers: [], // added this as a place for fetchPlumbers to store its data
+    completions: []
 }
 
 const API = "http://localhost:8088" // assigns the website where the data is to a variable (API)
@@ -52,6 +54,43 @@ export const deleteRequest = (id) => {
         .then(
             () => {
                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
+
+// instructions had fetchRequests, changed it to fetchPlumbers
+export const fetchPlumbers = () => {
+    return fetch(`${API}/plumbers`)
+        .then(response => response.json())
+        .then(
+            (data) => {
+                applicationState.plumbers = data
+            }
+        )
+}
+
+export const getPlumbers = () => {
+    return applicationState.plumbers.map(plumber => ({ ...plumber }))
+}
+
+// saveCompletion() - This will perform the POST request to save the completion object to the API
+export const saveCompletion = (completion) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(completion)
+    }
+}
+
+// fetchCompletions() - This will retrieve all completion objects from the API
+export const fetchCompletions = () => {
+    return fetch(`${API}/completions`)
+        .then(response => response.json())
+        .then(
+            (data) => {
+                applicationState.completions = data
             }
         )
 }
