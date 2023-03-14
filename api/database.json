@@ -9,28 +9,10 @@
       "name": "Merle"
     }
   ],
-  "completions": [],
+  "completions": [
+
+  ],
   "requests": [
-    {
-      "id": 1,
-      "description": "Aut sint voluptatem fugit eius quas molestiae modi.",
-      "address": "34445 Bianka Ports",
-      "budget": 400,
-      "neededBy": "2023-03-20"
-    },
-    {
-      "id": 2,
-      "description": "Second Request - Aut sint voluptatem fugit eius quas molestiae modi.",
-      "address": "25352 Main Avenue",
-      "budget": 250,
-      "neededBy": "2023-03-27"
-    },
-    {
-      "description": "Leaky faucet - bathtub",
-      "address": "12345 Main Street",
-      "budget": "500.00",
-      "neededBy": "2023-03-15",
-      "id": 5
-    }
+
   ]
 }

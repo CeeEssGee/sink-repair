@@ -6,7 +6,7 @@ const mainContainer = document.querySelector("#container")
 
 const render = () => {
     fetchRequests()
-    .then(() => fetchPlumbers())
+    .then(() => fetchPlumbers()) // row9
     .then(() => fetchCompletions())
     .then(
         () => {

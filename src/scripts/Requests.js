@@ -1,8 +1,12 @@
-import { getRequests, deleteRequest, getPlumbers, saveCompletion } from "./dataAccess.js" // imports the array of requests 
+import { getRequests, deleteRequest, getPlumbers, saveCompletion, getCompletions, getOpenRequests } from "./dataAccess.js" // imports the array of requests 
 
+
+// row9 - added plumbers 
 export const Requests = () => { // to retrieve the requests array from dataAccess.js
-    const requests = getRequests() // set as a variable so we can use the data 
+    // const requests = getRequests() // set as a variable so we can use the data 
+    const requests = getOpenRequests()
     const plumbers = getPlumbers()
+    const completions = getCompletions()
     let convertRequestToListElement = (request) => { // create a string from the data incoporating list tags
         return `
         <li id="cust-request--${request.id}" value=${request}>
@@ -50,11 +54,11 @@ mainContainer.addEventListener("click", click => {
 })
 
 
-
+// row9
 mainContainer.addEventListener(
     "change",
     (event) => {
-        if (event.target.id === "plumbers") {
+        if (event.target.className === "plumbers") {
             const [requestId, plumberId] = event.target.value.split("--")
             
             /*
@@ -69,7 +73,7 @@ mainContainer.addEventListener(
                 date_created: Date.now()
              }
 
-
+            
             /*
                 Invoke the function that performs the POST request
                 to the `completions` resource for your API. Send the
