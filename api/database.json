@@ -1,27 +1,18 @@
 {
-  "plumbers": [],
-  "completions": [],
-  "requests": [
+  "plumbers": [
     {
       "id": 1,
-      "description": "Aut sint voluptatem fugit eius quas molestiae modi.",
-      "address": "34445 Bianka Ports",
-      "budget": 400,
-      "neededBy": "2023-03-20"
+      "name": "Maude"
     },
     {
       "id": 2,
-      "description": "Second Request - Aut sint voluptatem fugit eius quas molestiae modi.",
-      "address": "25352 Main Avenue",
-      "budget": 250,
-      "neededBy": "2023-03-27"
-    },
-    {
-      "description": "Leaky sink faucet",
-      "address": "123 Main Street",
-      "budget": "500",
-      "neededBy": "2023-03-18",
-      "id": 4
+      "name": "Merle"
     }
+  ],
+  "completions": [
+
+  ],
+  "requests": [
+
   ]
 }
